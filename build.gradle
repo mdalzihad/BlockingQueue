@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'net.therap'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    javaMainClass = "net.spring.Main"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.7.18', ext: 'pom'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.7.18'
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
